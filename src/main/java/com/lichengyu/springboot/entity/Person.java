@@ -3,8 +3,8 @@ package com.lichengyu.springboot.entity;
 import com.lichengyu.springboot.constant.Sex;
 
 public class Person extends JsonObject{
-    private String name;
-    private Sex sex;
+    private java.lang.String name;
+    private String sex;
     private Byte age;
     private Person(Builder builder){
         this.name = builder.name;
@@ -12,14 +12,13 @@ public class Person extends JsonObject{
         this.age = builder.age;
     }
     public static class Builder{
+        //required param
         private String name;
-        private Sex sex;
-        private Byte age;
-        public Builder setName(String name) {
-            this.name = name;
-            return this;
-        }
-        public Builder setSex(Sex sex) {
+        //optional param
+        private String sex;
+        private Byte age = 0;
+
+        public Builder setSex(String sex) {
             this.sex = sex;
             return this;
         }
@@ -27,7 +26,8 @@ public class Person extends JsonObject{
             this.age = age;
             return this;
         }
-        public Person build(){
+        public Person build(String name){
+            this.name = name;
             return new Person(this);
         }
     }

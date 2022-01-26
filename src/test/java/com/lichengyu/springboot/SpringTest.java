@@ -1,12 +1,10 @@
 package com.lichengyu.springboot;
 
-import com.google.gson.Gson;
 import com.lichengyu.springboot.constant.GsonSingletonBuilder;
 import com.lichengyu.springboot.constant.Sex;
 import com.lichengyu.springboot.controller.MyController;
 import com.lichengyu.springboot.entity.Person;
 import com.lichengyu.springboot.service.MyService;
-import com.lichengyu.springboot.util.Constant;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -56,13 +54,11 @@ public class SpringTest {
 
     @Test
     public void test(){
-        String returnStr = myService.returnStr();
+        java.lang.String returnStr = myService.returnStr();
         logger.info(returnStr);
         Person lcy = new Person.Builder()
-                .setName("LCY")
-                .setAge(Byte.parseByte("0"))
-                .setSex(Sex.MAIL)
-                .build();
+                .setSex(Sex.MAIL.sexType)
+                .build("Lcy");
         logger.info(lcy);
     }
 
