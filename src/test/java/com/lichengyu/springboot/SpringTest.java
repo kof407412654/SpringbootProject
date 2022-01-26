@@ -57,7 +57,7 @@ public class SpringTest {
         java.lang.String returnStr = myService.returnStr();
         logger.info(returnStr);
         Person lcy = new Person.Builder()
-                .setSex(Sex.MAIL.sexType)
+                .setSex(Sex.MAIL)
                 .build("Lcy");
         logger.info(lcy);
     }

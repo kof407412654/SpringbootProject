@@ -18,8 +18,8 @@ public class Person extends JsonObject{
         private String sex;
         private Byte age = 0;
 
-        public Builder setSex(String sex) {
-            this.sex = sex;
+        public Builder setSex(Sex sex) {
+            this.sex = sex.sexType;
             return this;
         }
         public Builder setAge(Byte age) {
