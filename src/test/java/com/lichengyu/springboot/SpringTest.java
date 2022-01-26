@@ -3,7 +3,10 @@ package com.lichengyu.springboot;
 import com.lichengyu.springboot.constant.GsonSingletonBuilder;
 import com.lichengyu.springboot.constant.Sex;
 import com.lichengyu.springboot.controller.MyController;
+import com.lichengyu.springboot.entity.Calzone;
+import com.lichengyu.springboot.entity.NYPizza;
 import com.lichengyu.springboot.entity.Person;
+import com.lichengyu.springboot.entity.Pizza;
 import com.lichengyu.springboot.service.MyService;
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -77,6 +80,24 @@ public class SpringTest {
         logger.info(GsonSingletonBuilder.getGson().hashCode());
         logger.info(GsonSingletonBuilder.getGson().hashCode());
         logger.info(GsonSingletonBuilder.getGson().hashCode());
+    }
+
+    @Test
+    public void testPizza(){
+
+        Pizza nyPizza = new NYPizza.NYBuilder(NYPizza.Size.LARGE)
+                .addTopping(Pizza.Topping.HAM)
+                .addTopping(Pizza.Topping.MUSHROOM)
+                .addTopping(Pizza.Topping.ONION)
+                .build();
+        logger.info(nyPizza);
+
+        Pizza calzone = new Calzone.CalzoneBuilder()
+                .putSauceInside()
+                .addTopping(Pizza.Topping.HAM)
+                .build();
+        logger.info(calzone);
+
     }
 
 }
